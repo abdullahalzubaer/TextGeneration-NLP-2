@@ -1,15 +1,16 @@
+import random
+import sys
+
+import fitz
+import numpy as np
 import tensorflow as tf
-from tensorflow.keras.preprocessing.sequence import pad_sequences
-from tensorflow.keras.layers import Embedding, LSTM, Dense, Bidirectional, Dropout
-from tensorflow.keras.preprocessing.text import Tokenizer
+from keras.callbacks import ModelCheckpoint
+from tensorflow.keras.layers import (LSTM, Bidirectional, Dense, Dropout,
+                                     Embedding)
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.optimizers import Adam
-from keras.callbacks import ModelCheckpoint
-import numpy as np
-import sys
-import random
-import fitz
-
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+from tensorflow.keras.preprocessing.text import Tokenizer
 
 with fitz.open("DOCUMENT_PATH") as doc:
     text = str()
